@@ -35,6 +35,7 @@ app.get('/user', (req,res) => {
     });
 });
 
+//find title
 /*app.get('/user/:title', (req,res) => {
    connection.query("select * from Book where title =?", req.param('title'), (err, result) => {
        if(err) throw err;
@@ -50,6 +51,7 @@ app.get('/user', (req,res) => {
     });
 });*/
 
+//input in Body of PostMan
 app.post('/', (req, res) => {
     connection.query('insert into Book set ?', req.body,
         (err) => {
@@ -66,7 +68,7 @@ app.put('/user/update', (req, res) => {
 });
 
 app.delete('/user/:id', (req, res) => {
-    connection.query('delete from Book where id=?', req.param('id'), (err) => {
+    connection.query("delete from Book where id = ?", req.param('id'), (err) => {
         if(err) throw err;
         res.send('Success!');
     });
